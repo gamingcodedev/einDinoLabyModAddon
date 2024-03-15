@@ -4,12 +4,14 @@ import net.eindino.addon.config.AddonWidgetConfig;
 import net.eindino.addon.user.PlayerCache;
 import net.eindino.addon.util.NumberConventions;
 import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.client.component.format.TextColor;
 import net.labymod.api.client.gui.hud.hudwidget.SimpleHudWidget;
 import net.labymod.api.client.gui.hud.position.HudSize;
 import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.font.RenderableComponent;
 import net.labymod.api.client.render.matrix.Stack;
+import net.labymod.api.util.Color;
 
 public class GoldWidget extends SimpleHudWidget<AddonWidgetConfig> {
 
@@ -25,10 +27,15 @@ public class GoldWidget extends SimpleHudWidget<AddonWidgetConfig> {
 
     if (PlayerCache.getUserResponse() == null) return;
 
-    renderComponent(Component.translatable("eindino.hudWidget.eindino.gold")
-        .append(Component.text(
-            NumberConventions.format(PlayerCache.getUserResponse().getGold(), PlayerCache.getUserResponse().getLocale()))).color(
-            TextColor.color(labyAPI.widgetConfig().getLastSelectedColor())), stack, size);
+    String goldString = NumberConventions.format(PlayerCache.getUserResponse().getGold(),
+        PlayerCache.getUserResponse().getLocale());
+
+    Color labelColor = labyAPI.hudWidgetRegistry().globalHudWidgetConfig().labelColor().get();
+    Color valueColor = labyAPI.hudWidgetRegistry().globalHudWidgetConfig().valueColor().get();
+
+    renderComponent(Component.translatable("eindino.hudWidget.eindino.gold").color(TextColor.color(labelColor.getRed(), labelColor.getGreen(), labelColor.getBlue()))
+        .append(Component.text(goldString))
+        .color(TextColor.color(valueColor.getRed(), valueColor.getGreen(), valueColor.getBlue())), stack, size);
   }
 
   private void renderComponent(Component component, Stack stack, HudSize size) {

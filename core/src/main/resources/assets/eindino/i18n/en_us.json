@@ -2,10 +2,10 @@
   "eindino": {
     "hudWidget":{
       "coins": {
-        "name": "Display your einDinoNET coins"
+        "name": "Your coins"
       },
       "gold": {
-        "name": "Display your einDinoNET gold"
+        "name": "Your gold"
       },
       "eindino": {
         "name": "einDinoNET",

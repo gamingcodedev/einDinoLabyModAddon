@@ -2,15 +2,15 @@
   "eindino": {
     "hudWidget":{
       "coins": {
-        "name": "Zeige deine Coins von einDinoNET an"
+        "name": "Deine Coins"
       },
       "gold": {
-        "name": "Zeige dein Gold von einDinoNET an"
+        "name": "Dein Gold"
       },
       "eindino": {
         "name": "einDinoNET",
-        "coins": "Your coins: ",
-        "gold": "Your gold: "
+        "coins": "Deine Coins: ",
+        "gold": "Dein Gold: "
       }
     },
     "settings": {

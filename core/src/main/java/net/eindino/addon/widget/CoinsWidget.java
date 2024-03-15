@@ -11,6 +11,7 @@ import net.labymod.api.client.gui.hud.position.HudSize;
 import net.labymod.api.client.gui.mouse.MutableMouse;
 import net.labymod.api.client.render.font.RenderableComponent;
 import net.labymod.api.client.render.matrix.Stack;
+import net.labymod.api.util.Color;
 
 public class CoinsWidget extends SimpleHudWidget<AddonWidgetConfig> {
 
@@ -26,8 +27,14 @@ public class CoinsWidget extends SimpleHudWidget<AddonWidgetConfig> {
 
     if (PlayerCache.getUserResponse() == null) return;
 
-    renderComponent(Component.translatable("eindino.hudWidget.eindino.coins")
-        .append(Component.text(NumberConventions.format(PlayerCache.getUserResponse().getCoins(), PlayerCache.getUserResponse().getLocale()))).color(TextColor.color(labyAPI.widgetConfig().getLastSelectedColor())), stack, size);
+    String coinsString = NumberConventions.format(PlayerCache.getUserResponse().getCoins(),
+        PlayerCache.getUserResponse().getLocale());
+
+    Color labelColor = labyAPI.hudWidgetRegistry().globalHudWidgetConfig().labelColor().get();
+    Color valueColor = labyAPI.hudWidgetRegistry().globalHudWidgetConfig().valueColor().get();
+
+    renderComponent(Component.translatable("eindino.hudWidget.eindino.coins").color(TextColor.color(labelColor.getRed(), labelColor.getGreen(), labelColor.getBlue()))
+        .append(Component.text(coinsString)).color(TextColor.color(valueColor.getRed(), valueColor.getGreen(), valueColor.getBlue())), stack, size);
   }
 
   private void renderComponent(Component component, Stack stack, HudSize size) {
