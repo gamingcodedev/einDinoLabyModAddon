@@ -8,6 +8,10 @@ dependencies {
     api(project(":api"))
 }
 
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
 labyModProcessor {
     referenceType = net.labymod.gradle.core.processor.ReferenceType.DEFAULT
 }

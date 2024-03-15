@@ -9,15 +9,19 @@ version = "1.0.0"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
 labyMod {
-    defaultPackageName = "org.example" //change this to your main package name (used by all modules)
+    defaultPackageName = "net.eindino.addon" //change this to your main package name (used by all modules)
     addonInfo {
-        namespace = "example"
-        displayName = "ExampleAddon"
-        author = "Example Author"
-        description = "Example Description"
+        namespace = "eindino"
+        displayName = "einDinoNET"
+        author = "Gamingcode"
+        description = "An addon for the einDino.net Server"
         minecraftVersion = "*"
-        version = System.getenv().getOrDefault("VERSION", "0.0.1")
+        version = System.getenv().getOrDefault("VERSION", "1.0.0")
     }
 
     minecraft {

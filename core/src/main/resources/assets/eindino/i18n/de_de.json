@@ -1,0 +1,29 @@
+{
+  "eindino": {
+    "hudWidget":{
+      "coins": {
+        "name": "Zeige deine Coins von einDinoNET an"
+      },
+      "gold": {
+        "name": "Zeige dein Gold von einDinoNET an"
+      },
+      "eindino": {
+        "name": "einDinoNET",
+        "coins": "Your coins: ",
+        "gold": "Your gold: "
+      }
+    },
+    "settings": {
+      "name": "einDinoNET - ServerAddon",
+      "enabled": {
+        "name": "Aktiviert"
+      },
+      "coins": {
+        "name": "Coins"
+      },
+      "gold": {
+        "name": "Gold"
+      }
+    }
+  }
+}
