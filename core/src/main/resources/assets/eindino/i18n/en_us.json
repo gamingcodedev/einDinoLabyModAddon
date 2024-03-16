@@ -1,28 +1,32 @@
 {
+  "labymod": {
+    "hudWidgetCategory": {
+      "ein_dino": {
+        "name": "einDinoNET",
+        "description": "Shows your information about einDino.net"
+      }
+    }
+  },
   "eindino": {
+    "notification": {
+      "success": {
+        "title": "§8[§aeinDino§8] §aSuccessfully",
+        "insert": "§aYour data has been successfully loaded.",
+        "update": "§aYour data has been successfully updated."
+      }
+    },
     "hudWidget":{
       "coins": {
         "name": "Your coins"
       },
       "gold": {
         "name": "Your gold"
-      },
-      "eindino": {
-        "name": "einDinoNET",
-        "coins": "Your coins: ",
-        "gold": "Your gold: "
       }
     },
     "settings": {
       "name": "einDinoNET - ServerAddon",
       "enabled": {
         "name": "Enabled"
-      },
-      "coins": {
-        "name": "Coins"
-      },
-      "gold": {
-        "name": "Gold"
       }
     }
   }
