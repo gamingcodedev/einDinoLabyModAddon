@@ -24,8 +24,8 @@ public class PlayerInformationListener {
   public void updatePlayerData(ServerLoginEvent event) {
     ServerAddress serverAddress = event.serverData().actualAddress();
     if (serverAddress.matches("eindino.net", 25565, true)
-        || serverAddress.matches("play.eindino.net", 25565, true)
         || serverAddress.matches("gamingcode.dev", 25565, true)
+        || serverAddress.matches("eindino.dev", 25565, true)
         || serverAddress.matches("eindino.eu", 25565, true)
         || serverAddress.matches("eindino.de", 25565, true)
         || serverAddress.matches("magicalsmp.de", 25565, true)) {
