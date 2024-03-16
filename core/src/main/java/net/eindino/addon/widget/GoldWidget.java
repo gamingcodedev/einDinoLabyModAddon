@@ -37,4 +37,9 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(coinsString);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isPresent();
+  }
 }
