@@ -9,6 +9,10 @@
   },
   "eindino": {
     "notification": {
+      "failed": {
+        "title": "§8[§aeinDino§8] §cError",
+        "load": "§cAn error occurred while loading player data."
+      },
       "success": {
         "title": "§8[§aeinDino§8] §aSuccessfully",
         "insert": "§aYour data has been successfully loaded.",

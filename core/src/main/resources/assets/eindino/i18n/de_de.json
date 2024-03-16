@@ -9,6 +9,10 @@
   },
   "eindino": {
     "notification": {
+      "failed": {
+        "title": "§8[§aeinDino§8] §cFehlgeschlagen",
+        "load": "§cEin fehler beim Laden deiner Daten ist aufgetreten."
+      },
       "success": {
         "title": "§8[§aeinDino§8] §aErfolgreich",
         "insert": "§aDeine Daten wurde erfolgreich geladen.",
