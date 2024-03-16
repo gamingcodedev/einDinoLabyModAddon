@@ -37,7 +37,7 @@ public class PlayerCache {
   }
 
   private static boolean isSame(UserResponse userResponse) {
-    return userResponse.getCoins() == PlayerCache.userResponse.getCoins() && userResponse.getGold() == PlayerCache.userResponse.getGold();
+    return userResponse.getCoins() == getUserResponse().getCoins() && userResponse.getGold() == getUserResponse().getGold();
   }
 
   private static void insert(UserResponse userResponse) {

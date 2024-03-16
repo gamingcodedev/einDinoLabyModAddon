@@ -3,6 +3,7 @@ package net.eindino.addon;
 import net.eindino.addon.api.UserRequest;
 import net.eindino.addon.api.UserResponse;
 import net.eindino.addon.config.AddonConfig;
+import net.eindino.addon.listeners.PlayerChatListener;
 import net.eindino.addon.listeners.PlayerInformationListener;
 import net.eindino.addon.user.PlayerCache;
 import net.eindino.addon.widget.CoinsWidget;
@@ -26,6 +27,7 @@ public class einDinoAddon extends LabyAddon<AddonConfig> {
     registerSettingCategory();
 
     registerListener(new PlayerInformationListener(this));
+    registerListener(new PlayerChatListener(this));
 
     labyAPI().hudWidgetRegistry().categoryRegistry().register(EIN_DINO);
     labyAPI().hudWidgetRegistry().register(new CoinsWidget());
