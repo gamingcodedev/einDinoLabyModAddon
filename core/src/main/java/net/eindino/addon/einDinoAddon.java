@@ -46,6 +46,9 @@ public class einDinoAddon extends LabyAddon<AddonConfig> {
       if (userRequest.isSuccessful()) {
         UserResponse userResponse = userRequest.getUserResponse();
         PlayerCache.createOrUpdate(userResponse, this);
+      } else {
+        this.pushNotification(Component.translatable("eindino.notification.failed.title"),
+            Component.translatable("eindino.notification.failed.load"));
       }
     }).exceptionally((throwable) -> {
       this.pushNotification(Component.translatable("eindino.notification.failed.title"),

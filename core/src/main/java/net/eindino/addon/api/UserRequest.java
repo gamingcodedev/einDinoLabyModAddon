@@ -27,8 +27,12 @@ public class UserRequest {
       HttpClient client = HttpClient.newHttpClient();
       client.sendAsync(request, BodyHandlers.ofString())
           .thenAccept(response -> {
-            this.userResponse = gson.fromJson(response.body(), UserResponse.class);
-            successful = true;
+            if (response.body().isEmpty()) {
+              successful = false;
+            } else {
+              this.userResponse = gson.fromJson(response.body(), UserResponse.class);
+              successful = true;
+            }
 
             future.complete(null);
           }).exceptionally((e) -> {

@@ -2,10 +2,19 @@ package net.eindino.addon.api;
 
 public class UserResponse {
 
+  private boolean successfully;
   private String name;
   private int coins;
   private int gold;
   private String locale;
+
+  public boolean isSuccessfully() {
+    return successfully;
+  }
+
+  public void setSuccessfully(boolean successfully) {
+    this.successfully = successfully;
+  }
 
   public void setLocale(String locale) {
     this.locale = locale;
