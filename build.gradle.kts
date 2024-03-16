@@ -4,8 +4,8 @@ plugins {
     id("net.labymod.gradle.addon")
 }
 
-group = "org.example"
-version = "1.0.0"
+group = "net.eindino.addon"
+version = "1.0.1"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 

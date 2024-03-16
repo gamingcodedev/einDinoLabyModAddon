@@ -1,4 +1,4 @@
-rootProject.name = "einDinoNET - ServerAddon"
+rootProject.name = "einDinoLabyModAddon"
 
 pluginManagement {
     val labyGradlePluginVersion = "0.3.44"
