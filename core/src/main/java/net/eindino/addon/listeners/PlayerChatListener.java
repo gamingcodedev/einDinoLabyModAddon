@@ -26,7 +26,10 @@ public class PlayerChatListener {
       return;
     }
 
-    if (plain.startsWith("[einDino] Dir wurden") || plain.startsWith("[einDino] You have been")) {
+    if (plain.startsWith("[einDino] Dir wurden")
+        || plain.startsWith("[einDino] You have been")
+        || plain.startsWith("[einDino] Dein Rang wurde zu")
+        || plain.startsWith("[einDino] Your rank was changed to")) {
       this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 10, TimeUnit.SECONDS);
     }
 
