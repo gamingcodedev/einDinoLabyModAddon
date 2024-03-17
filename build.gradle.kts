@@ -20,8 +20,8 @@ labyMod {
         displayName = "einDinoNET"
         author = "Gamingcode"
         description = "An addon for the einDino.net Server"
-        minecraftVersion = "*"
-        version = System.getenv().getOrDefault("VERSION", "1.0.1")
+        minecraftVersion = "1.20<*"
+        version = System.getenv().getOrDefault("VERSION", "1.0.2")
     }
 
     minecraft {

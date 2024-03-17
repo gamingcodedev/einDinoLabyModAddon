@@ -29,6 +29,12 @@ public class PlayerChatListener {
     if (plain.startsWith("[einDino] Dir wurden") || plain.startsWith("[einDino] You have been")) {
       this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 10, TimeUnit.SECONDS);
     }
+
+    if (PlayerCache.isStaff()) {
+      if (plain.startsWith("[Warn]") || plain.startsWith("[Support]") || plain.toLowerCase().contains("report")) {
+        this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 10, TimeUnit.SECONDS);
+      }
+    }
   }
 
 }

@@ -25,6 +25,15 @@
       },
       "gold": {
         "name": "Dein Gold"
+      },
+      "reports": {
+        "name": "Bearbeitete Reports"
+      },
+      "supports": {
+        "name": "Bearbeitete SupportChats"
+      },
+      "warns": {
+        "name": "Deine Warns"
       }
     },
     "settings": {

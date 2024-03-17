@@ -2,12 +2,16 @@ package net.eindino.addon;
 
 import net.eindino.addon.api.UserRequest;
 import net.eindino.addon.api.UserResponse;
+import net.eindino.addon.api.staff.StaffStatsRequest;
 import net.eindino.addon.config.AddonConfig;
 import net.eindino.addon.listeners.PlayerChatListener;
 import net.eindino.addon.listeners.PlayerInformationListener;
 import net.eindino.addon.user.PlayerCache;
 import net.eindino.addon.widget.CoinsWidget;
 import net.eindino.addon.widget.GoldWidget;
+import net.eindino.addon.widget.staff.ReportsWidget;
+import net.eindino.addon.widget.staff.SupportWidget;
+import net.eindino.addon.widget.staff.WarnsWidget;
 import net.labymod.api.Laby;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.component.Component;
@@ -53,6 +57,26 @@ public class einDinoAddon extends LabyAddon<AddonConfig> {
     }).exceptionally((throwable) -> {
       this.pushNotification(Component.translatable("eindino.notification.failed.title"),
           Component.translatable("eindino.notification.failed.load"));
+      return null;
+    });
+  }
+
+  public void fetchStaffStats() {
+    StaffStatsRequest staffStatsRequest = new StaffStatsRequest();
+    staffStatsRequest.sendRequestAsync(PlayerCache.getUserResponse().getId()).thenRun(() -> {
+      if (staffStatsRequest.isSuccessful()) {
+        labyAPI().hudWidgetRegistry().register(new SupportWidget());
+        labyAPI().hudWidgetRegistry().register(new ReportsWidget());
+        labyAPI().hudWidgetRegistry().register(new WarnsWidget());
+      } else {
+        labyAPI().hudWidgetRegistry().unregister("supports");
+        labyAPI().hudWidgetRegistry().unregister("warns");
+        labyAPI().hudWidgetRegistry().unregister("reports");
+      }
+    }).exceptionally((throwable) -> {
+      labyAPI().hudWidgetRegistry().unregister("supports");
+      labyAPI().hudWidgetRegistry().unregister("warns");
+      labyAPI().hudWidgetRegistry().unregister("reports");
       return null;
     });
   }

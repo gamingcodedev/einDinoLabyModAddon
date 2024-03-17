@@ -1,26 +1,27 @@
-package net.eindino.addon.widget;
+package net.eindino.addon.widget.staff;
 
 import net.eindino.addon.einDinoAddon;
 import net.eindino.addon.user.PlayerCache;
+import net.eindino.addon.user.StaffStatsCache;
 import net.eindino.addon.util.NumberConventions;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidget;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidgetConfig;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextLine;
-import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
+import net.labymod.api.client.gui.hud.hudwidget.text.TextLine.State;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 
-@SpriteSlot( x = 2, y = 1)
-public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
+@SpriteSlot( x = 3)
+public class SupportWidget extends TextHudWidget<TextHudWidgetConfig> {
 
-  public GoldWidget() {
-    super("gold");
+  public SupportWidget() {
+    super("supports");
   }
 
   private TextLine textLine;
   public void load(TextHudWidgetConfig config) {
     super.load(config);
     bindCategory(einDinoAddon.EIN_DINO);
-    this.textLine = createLine("Gold", 0);
+    this.textLine = createLine("SupportChats", "0/0");
     updateTextLine();
   }
 
@@ -30,16 +31,13 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
 
   private void updateTextLine() {
     if (!PlayerCache.isPresent()) {
-      this.textLine.updateAndFlush(0);
+      this.textLine.updateAndFlush("0/0");
       return;
     }
-    String goldString = NumberConventions.format(PlayerCache.getUserResponse().getGold(),
+    String supports = NumberConventions.format(StaffStatsCache.getValue("support"),
+        PlayerCache.getUserResponse().getLocale()) + "/" + NumberConventions.format(StaffStatsCache.getValue("support.rating"),
         PlayerCache.getUserResponse().getLocale());
-    this.textLine.updateAndFlush(goldString);
-  }
-
-  @Override
-  public boolean isVisibleInGame() {
-    return PlayerCache.isPresent();
+    this.textLine.updateAndFlush(supports);
+    this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
 }

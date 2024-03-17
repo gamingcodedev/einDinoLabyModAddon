@@ -1,26 +1,27 @@
-package net.eindino.addon.widget;
+package net.eindino.addon.widget.staff;
 
 import net.eindino.addon.einDinoAddon;
 import net.eindino.addon.user.PlayerCache;
+import net.eindino.addon.user.StaffStatsCache;
 import net.eindino.addon.util.NumberConventions;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidget;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidgetConfig;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextLine;
-import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
+import net.labymod.api.client.gui.hud.hudwidget.text.TextLine.State;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 
-@SpriteSlot( x = 2, y = 1)
-public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
+@SpriteSlot( x = 2)
+public class WarnsWidget extends TextHudWidget<TextHudWidgetConfig> {
 
-  public GoldWidget() {
-    super("gold");
+  public WarnsWidget() {
+    super("warns");
   }
 
   private TextLine textLine;
   public void load(TextHudWidgetConfig config) {
     super.load(config);
     bindCategory(einDinoAddon.EIN_DINO);
-    this.textLine = createLine("Gold", 0);
+    this.textLine = createLine("Warns", 0);
     updateTextLine();
   }
 
@@ -33,13 +34,9 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
       this.textLine.updateAndFlush(0);
       return;
     }
-    String goldString = NumberConventions.format(PlayerCache.getUserResponse().getGold(),
+    String warns = NumberConventions.format(StaffStatsCache.getValue("warns"),
         PlayerCache.getUserResponse().getLocale());
-    this.textLine.updateAndFlush(goldString);
-  }
-
-  @Override
-  public boolean isVisibleInGame() {
-    return PlayerCache.isPresent();
+    this.textLine.updateAndFlush(warns);
+    this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
 }
