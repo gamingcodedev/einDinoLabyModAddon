@@ -24,6 +24,8 @@ public class PlayerInformationListener {
   public void updatePlayerData(ServerLoginEvent event) {
     ServerAddress serverAddress = event.serverData().address();
 
+    if (event.getDisconnectReason() != null) return;
+
     if (serverAddress.matches("eindino.net", 25565, true)
         || serverAddress.matches("gamingcode.dev", 25565, true)
         || serverAddress.matches("eindino.dev", 25565, true)
