@@ -6,6 +6,7 @@ import net.eindino.addon.util.NumberConventions;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidget;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidgetConfig;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextLine;
+import net.labymod.api.client.gui.hud.hudwidget.text.TextLine.State;
 import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 
@@ -36,10 +37,6 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
     String goldString = NumberConventions.format(PlayerCache.getUserResponse().getGold(),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(goldString);
-  }
-
-  @Override
-  public boolean isVisibleInGame() {
-    return PlayerCache.isPresent();
+    this.textLine.setState(PlayerCache.isPresent() ? State.VISIBLE : State.DISABLED);
   }
 }
