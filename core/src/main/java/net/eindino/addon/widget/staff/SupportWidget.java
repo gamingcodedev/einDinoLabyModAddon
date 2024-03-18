@@ -40,4 +40,9 @@ public class SupportWidget extends TextHudWidget<TextHudWidgetConfig> {
     this.textLine.updateAndFlush(supports);
     this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isStaff();
+  }
 }

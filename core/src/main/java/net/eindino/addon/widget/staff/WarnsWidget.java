@@ -39,4 +39,9 @@ public class WarnsWidget extends TextHudWidget<TextHudWidgetConfig> {
     this.textLine.updateAndFlush(warns);
     this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isStaff();
+  }
 }

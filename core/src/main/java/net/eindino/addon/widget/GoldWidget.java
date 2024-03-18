@@ -39,4 +39,9 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
     this.textLine.updateAndFlush(goldString);
     this.textLine.setState(PlayerCache.isPresent() ? State.VISIBLE : State.DISABLED);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isPresent();
+  }
 }

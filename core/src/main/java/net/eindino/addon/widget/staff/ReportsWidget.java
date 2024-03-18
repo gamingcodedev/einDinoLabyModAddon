@@ -39,4 +39,9 @@ public class ReportsWidget extends TextHudWidget<TextHudWidgetConfig> {
     this.textLine.updateAndFlush(reports);
     this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isStaff();
+  }
 }

@@ -15,10 +15,6 @@ public class PlayerCache {
 
   public static void invalidate() {
     PlayerCache.userResponse = null;
-
-    Laby.labyAPI().hudWidgetRegistry().unregister("supports");
-    Laby.labyAPI().hudWidgetRegistry().unregister("warns");
-    Laby.labyAPI().hudWidgetRegistry().unregister("reports");
   }
 
   public static boolean isStaff() {

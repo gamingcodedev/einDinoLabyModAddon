@@ -40,4 +40,9 @@ public class CoinsWidget extends TextHudWidget<TextHudWidgetConfig> {
     this.textLine.updateAndFlush(coinsString);
     this.textLine.setState(PlayerCache.isPresent() ? State.VISIBLE : State.DISABLED);
   }
+
+  @Override
+  public boolean isVisibleInGame() {
+    return PlayerCache.isPresent();
+  }
 }
