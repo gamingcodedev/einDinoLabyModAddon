@@ -65,9 +65,9 @@ public class einDinoAddon extends LabyAddon<AddonConfig> {
     StaffStatsRequest staffStatsRequest = new StaffStatsRequest();
     staffStatsRequest.sendRequestAsync(PlayerCache.getUserResponse().getId()).thenRun(() -> {
       if (staffStatsRequest.isSuccessful()) {
-        labyAPI().hudWidgetRegistry().register(new SupportWidget());
-        labyAPI().hudWidgetRegistry().register(new ReportsWidget());
-        labyAPI().hudWidgetRegistry().register(new WarnsWidget());
+        labyAPI().hudWidgetRegistry().getOrRegister("supports", new SupportWidget());
+        labyAPI().hudWidgetRegistry().getOrRegister("warns", new WarnsWidget());
+        labyAPI().hudWidgetRegistry().getOrRegister("reports", new ReportsWidget());
       } else {
         labyAPI().hudWidgetRegistry().unregister("supports");
         labyAPI().hudWidgetRegistry().unregister("warns");
