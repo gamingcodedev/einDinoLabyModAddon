@@ -37,7 +37,6 @@ public class GoldWidget extends TextHudWidget<TextHudWidgetConfig> {
     String goldString = NumberConventions.format(PlayerCache.getUserResponse().getGold(),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(goldString);
-    this.textLine.setState(PlayerCache.isPresent() ? State.VISIBLE : State.DISABLED);
   }
 
   @Override

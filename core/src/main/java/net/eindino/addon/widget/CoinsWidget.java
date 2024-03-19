@@ -38,7 +38,6 @@ public class CoinsWidget extends TextHudWidget<TextHudWidgetConfig> {
     String coinsString = NumberConventions.format(PlayerCache.getUserResponse().getCoins(),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(coinsString);
-    this.textLine.setState(PlayerCache.isPresent() ? State.VISIBLE : State.DISABLED);
   }
 
   @Override

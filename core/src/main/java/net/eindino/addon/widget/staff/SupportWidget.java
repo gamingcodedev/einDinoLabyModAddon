@@ -38,7 +38,6 @@ public class SupportWidget extends TextHudWidget<TextHudWidgetConfig> {
         PlayerCache.getUserResponse().getLocale()) + "/" + NumberConventions.format(StaffStatsCache.getValue("support.rating"),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(supports);
-    this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
 
   @Override

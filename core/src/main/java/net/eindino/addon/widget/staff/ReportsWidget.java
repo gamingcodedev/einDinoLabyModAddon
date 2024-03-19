@@ -37,7 +37,6 @@ public class ReportsWidget extends TextHudWidget<TextHudWidgetConfig> {
     String reports = NumberConventions.format(StaffStatsCache.getValue("reports"),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(reports);
-    this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
 
   @Override

@@ -37,7 +37,6 @@ public class WarnsWidget extends TextHudWidget<TextHudWidgetConfig> {
     String warns = NumberConventions.format(StaffStatsCache.getValue("warns"),
         PlayerCache.getUserResponse().getLocale());
     this.textLine.updateAndFlush(warns);
-    this.textLine.setState(PlayerCache.isStaff() ? State.VISIBLE : State.DISABLED);
   }
 
   @Override
