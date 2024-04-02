@@ -30,12 +30,12 @@ public class PlayerChatListener {
         || plain.startsWith("[einDino] You have been")
         || plain.startsWith("[einDino] Dein Rang wurde zu")
         || plain.startsWith("[einDino] Your rank was changed to")) {
-      this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 10, TimeUnit.SECONDS);
+      this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 1, TimeUnit.SECONDS);
     }
 
     if (PlayerCache.isStaff()) {
       if (plain.startsWith("[Warn]") || plain.startsWith("[Support]") || plain.toLowerCase().contains("report")) {
-        this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 10, TimeUnit.SECONDS);
+        this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 1, TimeUnit.SECONDS);
       }
     }
   }
