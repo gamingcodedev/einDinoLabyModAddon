@@ -28,14 +28,18 @@ public class PlayerChatListener {
 
     if (plain.startsWith("[einDino] Dir wurden")
         || plain.startsWith("[einDino] You have been")
+        || plain.startsWith("[einDino] You payed")
+        || plain.startsWith("[einDino] You recevied from")
+        || plain.startsWith("[einDino] Du hast")
+        || plain.startsWith("[einDino] Du hast von")
         || plain.startsWith("[einDino] Dein Rang wurde zu")
         || plain.startsWith("[einDino] Your rank was changed to")) {
-      this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 1, TimeUnit.SECONDS);
+      this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 3, TimeUnit.SECONDS);
     }
 
     if (PlayerCache.isStaff()) {
       if (plain.startsWith("[Warn]") || plain.startsWith("[Support]") || plain.toLowerCase().contains("report")) {
-        this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 1, TimeUnit.SECONDS);
+        this.scheduledThreadPoolExecutor.schedule(addon::updatePlayerInformation, 3, TimeUnit.SECONDS);
       }
     }
   }
