@@ -40,6 +40,9 @@
       "name": "einDinoNET - ServerAddon",
       "enabled": {
         "name": "Aktiviert"
+      },
+      "announcement": {
+        "name": "Benachrichtigungen"
       }
     }
   }

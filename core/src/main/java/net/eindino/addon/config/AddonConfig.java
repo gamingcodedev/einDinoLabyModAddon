@@ -14,8 +14,16 @@ public class AddonConfig extends net.labymod.api.addon.AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
+  @SpriteSlot(x = 2)
+  @SwitchSetting
+  private final ConfigProperty<Boolean> announcement = new ConfigProperty<>(true);
+
   @Override
   public ConfigProperty<Boolean> enabled() {
     return this.enabled;
+  }
+
+  public ConfigProperty<Boolean> announcement() {
+    return announcement;
   }
 }

@@ -42,9 +42,11 @@ public class einDinoAddon extends LabyAddon<AddonConfig> {
   }
 
   public void pushNotification(Component title, Component text) {
-    Notification.Builder builder = Notification.builder().title(title).text(text).icon(
-        Icon.texture(ResourceLocation.create("eindino", "textures/icon.png"))).type(Notification.Type.SYSTEM);
-    labyAPI().notificationController().push(builder.build());
+    if (this.configuration().announcement().get()) {
+      Notification.Builder builder = Notification.builder().title(title).text(text).icon(
+          Icon.texture(ResourceLocation.create("eindino", "textures/icon.png"))).type(Notification.Type.SYSTEM);
+      labyAPI().notificationController().push(builder.build());
+    }
   }
 
   public void updatePlayerInformation() {
